@@ -22,6 +22,11 @@ html, body, #root {
   overflow-x: hidden;
 }
 
+/* Avoid the grey flash on tap and stop long-press text selection on controls */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   font-family: 'Press Start 2P', monospace;
   background: #0a0e1a;
@@ -56,6 +61,14 @@ body {
 .terminal-text {
   color: var(--screen-text);
   text-shadow: 0 0 4px rgba(74, 222, 128, 0.4);
+}
+
+/* iOS zooms the page when a focused input has font-size < 16px. On phones we
+   force 16px (the terminal prompt visual size is unaffected on desktop). */
+@media (max-width: 639px) {
+  .terminal-input {
+    font-size: 16px;
+  }
 }
 
 /* Blinking cursor */
@@ -148,6 +161,19 @@ body {
 .pixel-render {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+}
+
+/* Scale down background Pokémon on phones so they don't crowd the screen.
+   These override inline width/height set on the sprites, hence !important. */
+@media (max-width: 639px) {
+  .bg-flyer {
+    width: 92px !important;
+    height: auto !important;
+  }
+  .bg-runner {
+    width: 44px !important;
+    height: 44px !important;
+  }
 }
 
 /* Remove white/light backgrounds from sprite GIFs */

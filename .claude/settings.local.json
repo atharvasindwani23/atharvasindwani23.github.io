@@ -22,7 +22,19 @@
       "Bash(pkill -f \"vite\")",
       "Bash(git add *)",
       "Bash(curl -L -o /Users/arvani/onlinepresence/public/assets/audio/bgm.mp3 \"https://archive.org/download/Pokemon-Ruby-Sapphire-Pokemon-Center/Pokemon%20Center.mp3\")",
-      "Bash(curl -L -o /Users/arvani/onlinepresence/public/assets/audio/bgm.mp3 \"https://ia800501.us.archive.org/11/items/Pokemon_Red_Pokemon_Blue_Pokemon_Yellow_Soundtrack/Pokemon%20Red%20-%20Pokemon%20Blue%20-%20Pokemon%20Yellow%20Soundtrack%20-%2016%20Pokemon%20Center.mp3\")"
+      "Bash(curl -L -o /Users/arvani/onlinepresence/public/assets/audio/bgm.mp3 \"https://ia800501.us.archive.org/11/items/Pokemon_Red_Pokemon_Blue_Pokemon_Yellow_Soundtrack/Pokemon%20Red%20-%20Pokemon%20Blue%20-%20Pokemon%20Yellow%20Soundtrack%20-%2016%20Pokemon%20Center.mp3\")",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5174)",
+      "Bash(git config *)",
+      "Bash(curl -s -X PATCH -H \"Authorization: token $\\(git config credential.helper)",
+      "Bash(curl *)",
+      "Read(//tmp/**)",
+      "Bash(node -e \"const e = require\\('./src/data/experience.js'\\).default; e.forEach\\(x => { console.log\\(x.role.length, x.role\\); console.log\\(\\(x.period + ' | ' + x.location\\).length, x.period + ' | ' + x.location\\); }\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(git checkout *)",
+      "Bash(git -C /Users/arvani/onlinepresence status --short)",
+      "Bash(git -C /Users/arvani/onlinepresence branch --show-current)",
+      "Bash(git -C /Users/arvani/onlinepresence remote -v)"
     ]
   }
 }

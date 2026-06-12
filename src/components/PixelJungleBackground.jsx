@@ -98,7 +98,7 @@ function PidgeotFlyer() {
       <img
         src="/assets/sprites/pidgeot.gif"
         alt="Pidgeot"
-        className="pixel-render sprite-no-bg"
+        className="pixel-render sprite-no-bg bg-flyer"
         style={{ width: '160px', height: '160px', objectFit: 'contain' }}
       />
     </motion.div>
@@ -119,7 +119,7 @@ function DragoniteFlyer() {
       <img
         src="/assets/sprites/dragonite.gif"
         alt="Dragonite"
-        className="pixel-render sprite-no-bg"
+        className="pixel-render sprite-no-bg bg-flyer"
         style={{
           width: '160px',
           height: 'auto',
@@ -299,7 +299,7 @@ function PikachuRunning() {
       <img
         src="/assets/sprites/pikachu.gif"
         alt="Pikachu"
-        className="pixel-render sprite-no-bg"
+        className="pixel-render sprite-no-bg bg-runner"
         style={{ width: '64px', height: '64px', objectFit: 'contain' }}
       />
     </motion.div>
@@ -317,7 +317,7 @@ function CharmanderRunning() {
       <img
         src="/assets/sprites/charmander.webp"
         alt="Charmander"
-        className="pixel-render sprite-no-bg"
+        className="pixel-render sprite-no-bg bg-runner"
         style={{ width: '64px', height: '64px', objectFit: 'contain' }}
       />
     </motion.div>

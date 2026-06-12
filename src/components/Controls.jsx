@@ -28,13 +28,13 @@ export default function Controls({ onCommand }) {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-gray-800" />
       </div>
 
-      {/* Quick command buttons */}
-      <div className="flex flex-wrap gap-1 justify-center max-w-[180px]">
+      {/* Quick command buttons — larger tap targets on mobile */}
+      <div className="flex flex-wrap gap-1.5 justify-center max-w-[200px]">
         {quickCommands.map(cmd => (
           <button
             key={cmd}
             onClick={() => { playButtonClick(); onCommand && onCommand(cmd); }}
-            className="font-pixel text-[6px] px-2 py-1 rounded-sm bg-gray-800/80 text-gray-400 border border-gray-700 hover:text-green-400 hover:border-green-700 transition-colors"
+            className="font-pixel text-[7px] sm:text-[6px] px-2.5 py-1.5 sm:py-1 rounded-sm bg-gray-800/80 text-gray-400 border border-gray-700 hover:text-green-400 hover:border-green-700 active:scale-95 transition-all"
           >
             {cmd}
           </button>

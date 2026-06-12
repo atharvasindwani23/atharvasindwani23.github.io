@@ -51,6 +51,14 @@ export default function TerminalScreen({ onMusicToggle, onCatch, onCatchStart, o
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [lines]);
 
+  // Auto-focus the input on desktop once booted, but not on touch/mobile —
+  // there it would pop the keyboard and zoom/scroll the page on load.
+  useEffect(() => {
+    if (!booted) return;
+    const isDesktop = window.matchMedia('(min-width: 640px) and (pointer: fine)').matches;
+    if (isDesktop) inputRef.current?.focus();
+  }, [booted]);
+
   const processInput = (cmd) => {
     if (isGuessGameActive()) {
       const result = handleGuessInput(cmd);
@@ -241,10 +249,11 @@ export default function TerminalScreen({ onMusicToggle, onCatch, onCatchStart, o
             type="text"
             value={input}
             onChange={(e) => { setInput(e.target.value); playTypeSound(); }}
-            className="flex-1 bg-transparent border-none outline-none terminal-text font-readable text-[11px] sm:text-xs caret-green-400"
-            autoFocus
+            className="terminal-input flex-1 bg-transparent border-none outline-none terminal-text font-readable text-[11px] sm:text-xs caret-green-400"
             spellCheck={false}
             autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
             placeholder="enter command..."
           />
           <span className="cursor-blink terminal-text text-sm">█</span>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import TrainerCard from './TrainerCard';
+import TrainerCard, { TrainerCardMobile } from './TrainerCard';
 import TerminalScreen from './TerminalScreen';
 import Controls from './Controls';
 import MusicToggle from './MusicToggle';
@@ -51,9 +51,9 @@ export default function PokedexShell({ onCatchStart, onThrow }) {
   }, []);
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen p-4" style={{ zIndex: 1 }}>
+    <div className="relative flex items-center justify-center min-h-screen min-h-[100dvh] py-4 px-3 sm:p-4" style={{ zIndex: 1 }}>
       <motion.div
-        className="relative w-full max-w-sm sm:max-w-md"
+        className="relative w-full max-w-md"
         initial={{ scale: 0.8, opacity: 0, y: 30 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
@@ -114,6 +114,11 @@ export default function PokedexShell({ onCatchStart, onThrow }) {
               <span className="font-pixel text-[5px] text-gray-500">POKÉDEX v2.0</span>
             </div>
 
+            {/* Compact identity card — mobile only (full card is hidden below sm) */}
+            <div className="sm:hidden">
+              <TrainerCardMobile />
+            </div>
+
             {/* Main layout: TrainerCard + Terminal stacked vertically on mobile, side by side on sm+ */}
             <div className="flex flex-col sm:flex-row gap-2 mb-2">
               {/* Left: Trainer Card */}
@@ -122,7 +127,7 @@ export default function PokedexShell({ onCatchStart, onThrow }) {
               </div>
 
               {/* Right: Terminal Screen */}
-              <div className="flex-1 h-[420px] sm:h-[480px]">
+              <div className="flex-1 h-[60vh] min-h-[360px] sm:h-[480px]">
                 <TerminalScreen
                   onMusicToggle={toggleMusic}
                   onCatch={handleCatch}

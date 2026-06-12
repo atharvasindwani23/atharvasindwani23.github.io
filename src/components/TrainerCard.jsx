@@ -79,6 +79,57 @@ export default function TrainerCard() {
   );
 }
 
+// Compact horizontal variant shown only on mobile, stacked above the terminal.
+// The full TrainerCard is too tall for a phone and is hidden there, so this
+// keeps the trainer's identity and — critically — the social links reachable.
+export function TrainerCardMobile() {
+  return (
+    <motion.div
+      className="rounded-md p-3 mb-2"
+      style={{
+        background: 'linear-gradient(180deg, #0d1f3c 0%, #081428 100%)',
+        border: '2px solid #1a3a1a',
+        boxShadow: 'inset 0 0 20px rgba(74, 222, 128, 0.05)',
+      }}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+    >
+      {/* Identity row */}
+      <div className="flex items-center gap-3">
+        <div className="flex-shrink-0">
+          <TrainerAvatar />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h2 className="font-pixel text-green-400 text-[10px] leading-tight">ATHARVA SINDWANI</h2>
+          <p className="font-pixel text-[6px] text-green-600 mt-1.5">CS + Advertising @ UIUC</p>
+          <div className="mt-1.5 inline-block px-2 py-1 rounded-sm" style={{ background: '#1a2d1a', border: '1px solid #2d5a2d' }}>
+            <p className="font-pixel text-[6px] text-amber-400">AI Intern @ Amazon</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Social links — full-width tap targets in a 2x2 grid */}
+      <div className="grid grid-cols-2 gap-2 mt-3">
+        {socialBadges.map((badge) => (
+          <a
+            key={badge.id}
+            href={badge.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 rounded-sm px-2 min-h-[40px] active:scale-95 transition-transform"
+            style={{ background: '#1a2d1a', border: '1px solid #2d5a2d' }}
+            title={badge.label}
+          >
+            <SocialIcon id={badge.id} />
+            <span className="font-pixel text-[7px] text-green-400">{badge.label}</span>
+          </a>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
 function MiniCard({ label, value }) {
   return (
     <div className="rounded-sm p-2 text-center" style={{ background: '#0a1a2a', border: '1px solid #1a3a2a' }}>
