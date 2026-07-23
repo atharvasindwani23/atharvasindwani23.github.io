@@ -68,7 +68,7 @@ export default function TrainerCard() {
 
       {/* Blogs & Photos — simple hyperlinks */}
       <div className="space-y-1 pointer-events-auto mt-3">
-        <a href="#" className="block font-pixel text-[5px] text-green-500 hover:text-green-300 transition-colors">
+        <a href="https://atharvasindwani23.github.io/blogs/" target="_blank" rel="noopener noreferrer" className="block font-pixel text-[5px] text-green-500 hover:text-green-300 transition-colors">
           &gt; Blogs
         </a>
         <a href="#" className="block font-pixel text-[5px] text-green-500 hover:text-green-300 transition-colors">
